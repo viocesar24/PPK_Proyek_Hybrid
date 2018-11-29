@@ -1,0 +1,334 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!--
+        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
+        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+    <!--
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+    -->
+
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" />
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" href="css/stylesheet.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="scripts/script.js"></script>
+    <title>BlankCordovaApp1</title>
+</head>
+<body>
+    <!-- Memulai halaman pertama -->
+    <div id="halaman-awal" data-role="page" class="ui-body-w">
+        <!-- Header dari halaman pertama -->
+        <div data-role="header">
+            <h1>Halaman Utama</h1>
+        </div>
+        <!-- Isi dari halaman pertama -->
+        <div role="main" class="ui-content" style="text-align:center;">
+            <img src="images/welcome-message.png" alt="welcome-message image" class="responsive">
+            <p>Klik <a href="#halaman-login">di sini</a> untuk melanjutkan</p>
+        </div>
+        <!-- Footer dari halaman pertama -->
+        <div data-role="footer">
+            <h4>@copyright, Fun Study</h4>
+        </div>
+    </div>
+
+    <!-- Memulai halaman kedua (HALAMAN LOGIN) -->
+    <div id="halaman-login" data-role="page" class="ui-body-b">
+        <!-- Header dari halaman kedua -->
+        <div data-role="header">
+            <h1>Halaman Masuk</h1>
+        </div>
+        <!-- Isi dari halaman kedua -->
+        <div role="main" class="ui-content">
+            <form method="POST" id="form_id" name="myform">
+                <label for="uname">
+                    <b>
+                        Nama Pengguna
+                    </b>
+                </label>
+                <input type="text" id="username" placeholder="Enter Username" name="username" required>
+                <label for="psw">
+                    <b>
+                        Kata Sandi
+                    </b>
+                </label>
+                <input type="password" id="password" placeholder="Enter Password" name="password" required>
+                <p id="alert-login"></p>
+                <input type="button" value="Masuk" id="submit" onclick="validasiLogin()" />
+                <p>Belum Punya Akun ? <a href="#halaman-daftar">Register</a></p>
+            </form>
+            <button type="button" onclick="window.location.href='#halaman-awal'">
+                Kembali
+            </button>
+        </div>
+        <!-- Footer dari halaman kedua -->
+        <div data-role="footer">
+            <h4>@copyright, Fun Study</h4>
+        </div>
+    </div>
+
+    <!-- Memulai halaman ketiga (HALAMAN REGISTER) -->
+    <div id="halaman-daftar" data-role="page" class="ui-body-b">
+        <!-- Header dari halaman ketiga -->
+        <div data-role="header">
+            <h1>Halaman Daftar</h1>
+        </div>
+        <!-- Isi dari halaman ketiga -->
+        <div role="main" class="ui-content">
+            <form method="POST">
+                <label for="nama">
+                    <b>
+                        Nama
+                    </b>
+                </label>
+                <input type="text" placeholder="Masukkan Nama" name="nama" required>
+                <label for="uname">
+                    <b>
+                        Nama Pengguna
+                    </b>
+                </label>
+                <input type="text" placeholder="Masukkan Username" name="uname" required>
+                <label for="psw">
+                    <b>
+                        Kata Sandi
+                    </b>
+                </label>
+                <input type="password" placeholder="Masukkan Kata Sandi" name="psw" required>
+                <label for="ulang_psw">
+                    <b>
+                        Ulang Kata Sandi
+                    </b>
+                </label>
+                <input type="password" placeholder="Ulang Kata Sandi" name="ulang_psw" required>
+                <button type="submit">
+                    Daftar
+                </button>
+            </form>
+            <button type="button" onclick="window.location.href='#halaman-login'">
+                Kembali ke halaman Masuk
+            </button>
+        </div>
+        <!-- Footer dari halaman ketiga -->
+        <div data-role="footer">
+            <h4>@copyright, Fun Study</h4>
+        </div>
+    </div>
+
+    <!-- Memulai halaman profil (HALAMAN PROFIL) -->
+    <div id="halaman-profil" data-role="page" class="ui-body-b">
+        <!-- Header dari halaman profil -->
+        <div data-role="header">
+            <h1>Menu Profil</h1>
+            <a href="#left-panel" data-theme="d" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-icon-nodisc">Open left panel</a>
+        </div>
+        <!-- Isi dari halaman profil -->
+        <div role="main" class="ui-content">
+            <h1>USER</h1>
+        </div>
+        <!-- Memulai panel samping kiri -->
+        <div id="left-panel" data-role="panel" data-theme="b" data-display="push">
+            <!-- Isi dari panel samping kiri -->
+            <button type="button" onclick="window.location.href='#halaman-profil'">Profil</button>
+            <button type="button" onclick="window.location.href='#halaman-kategori'">Pilih Kategori</button>
+            <button type="button" onclick="window.location.href='#aboutUs-page'">Tentang Kami</button>
+            <button type="button" onclick="window.location.href='#halaman-login'">Keluar</button>
+        </div>
+        <!-- Footer dari halaman keempat -->
+        <div data-role="footer">
+            <h4>@copyright, Fun Study</h4>
+        </div>
+    </div>
+
+    <!-- Memulai halaman keempat (HALAMAN UTAMA) -->
+    <div id="halaman-utama" data-role="page" class="ui-body-b">
+        <!-- Header dari halaman keempat -->
+        <div data-role="header">
+            <h1>Menu Utama</h1>
+        </div>
+        <!-- Isi dari halaman keempat -->
+        <div role="main" class="ui-content">
+            <p id="usertext">User/Guest</p>
+            <br />
+            <button type="button" onclick="window.location.href='#halaman-kategori'">
+                Yuk Main!
+            </button>
+            <button type="button" onclick="window.location.href='#aboutUs-page'">
+                Tentang Kami...
+            </button>
+            <br />
+            <button type="button" onclick="window.location.href='#halaman-login'">
+                Keluar
+            </button>
+        </div>
+        <!-- Footer dari halaman keempat -->
+        <div data-role="footer">
+            <h4>@copyright, Fun Study</h4>
+        </div>
+    </div>
+
+    <!-- Memulai halaman kelima (HALAMAN YukMain -> Halaman Pilih Kategori) -->
+    <div id="halaman-kategori" data-role="page" class="ui-body-w">
+        <!-- Header dari halaman YukMain -> Halaman Pilih Kategori -->
+        <div data-role="header">
+            <h1>Pilih Kategori</h1>
+        </div>
+        <!-- Isi dari halaman YukMain -> Halaman Pilih Kategori -->
+        <div role="main" class="ui-content">
+            <center>
+                <div>
+                    <form method="POST">
+                        <input type="image" src="images/button_matematika.png" alt="kategori_matematika" onclick="window.location.href='#halaman-kategori-matematika'" />
+                        <input type="image" src="images/button_biologi.png" alt="kategori_biologi" onclick="window.location.href='#halaman-kategori-biologi'" />
+                        <br />
+                        <input type="image" src="images/button_sejarah.png" alt="kategori_sejarah" onclick="window.location.href='#halaman-kategori-sejarah'" />
+                        <input type="image" src="images/button_indonesia.png" alt="kategori_indonesia" onclick="window.location.href='#halaman-kategori-indonesia'" />
+                    </form>
+                </div>
+            </center>
+        </div>
+        <button type="button" onclick="window.location.href='#halaman-utama'">
+            Kembali
+        </button>
+        <!-- Footer dari halaman YukMain -> Halaman Pilih Kategori -->
+        <div data-role="footer">
+            <h4>@copyright, Fun Study</h4>
+        </div>
+    </div>
+
+    <!-- Memulai halaman kategori-matematika (HALAMAN KATEGORI MATEMATIKA) -->
+    <div id="halaman-kategori-matematika" data-role="page" class="ui-body-w">
+        <!-- Header dari halaman kategori-matematika -->
+        <div data-role="header">
+            <h1>MATEMATIKA</h1>
+        </div>
+        <!-- Isi dari halaman kategori-matematika -->
+        <div role="main" class="ui-content">
+            <center>
+                <div>
+                    <h2>Pernyataan 01</h2>
+                    <h1>1 + 1 = 3</h1>
+                    <a href="#" class="benarButton" style="color: white">BENAR</a>
+                    <a href="#" class="salahButton" style="color: white">SALAH</a>
+                </div>
+            </center>
+            <button type="button" onclick="window.location.href='#halaman-kategori'">
+                Selesai
+            </button>
+        </div>
+        <!-- Footer dari halaman kategori-matematika -->
+        <div data-role="footer">
+            <h4>@copyright, Fun Study</h4>
+        </div>
+    </div>
+
+    <!-- Memulai halaman kategori-biologi (HALAMAN KATEGORI BIOLOGI) -->
+    <div id="halaman-kategori-biologi" data-role="page" class="ui-body-w">
+        <!-- Header dari halaman kategori-biologi -->
+        <div data-role="header">
+            <h1>BIOLOGI</h1>
+        </div>
+        <!-- Isi dari halaman kategori-biologi -->
+        <div role="main" class="ui-content">
+            <center>
+                <div>
+                    <h2>Pernyataan 01</h2>
+                    <h1>Fungsi hati adalah untuk mengatur sirkulasi hormon</h1>
+                    <a href="#" class="benarButton" style="color: white">BENAR</a>
+                    <a href="#" class="salahButton" style="color: white">SALAH</a>
+                </div>
+            </center>
+            <button type="button" onclick="window.location.href='#halaman-kategori'">
+                Selesai
+            </button>
+        </div>
+        <!-- Footer dari halaman kategori-biologi -->
+        <div data-role="footer">
+            <h4>@copyright, Fun Study</h4>
+        </div>
+    </div>
+
+    <!-- Memulai halaman kategori-sejarah (HALAMAN KATEGORI SEJARAH) -->
+    <div id="halaman-kategori-sejarah" data-role="page" class="ui-body-w">
+        <!-- Header dari halaman kategori-sejarah -->
+        <div data-role="header">
+            <h1>SEJARAH</h1>
+        </div>
+        <!-- Isi dari halaman kategori-sejarah -->
+        <div role="main" class="ui-content">
+            <center>
+                <div>
+                    <h2>Pernyataan 01</h2>
+                    <h1>Presiden pertama Indonesia adalah Soeharto</h1>
+                    <a href="#" class="benarButton" style="color: white">BENAR</a>
+                    <a href="#" class="salahButton" style="color: white">SALAH</a>
+                </div>
+            </center>
+            <button type="button" onclick="window.location.href='#halaman-kategori'">
+                Selesai
+            </button>
+        </div>
+        <!-- Footer dari halaman kategori-sejarah -->
+        <div data-role="footer">
+            <h4>@copyright, Fun Study</h4>
+        </div>
+    </div>
+
+    <!-- Memulai halaman kategori-indonesia (HALAMAN KATEGORI INDONESIA) -->
+    <div id="halaman-kategori-indonesia" data-role="page" class="ui-body-w">
+        <!-- Header dari halaman kategori-indonesia -->
+        <div data-role="header">
+            <h1>INDONESIA</h1>
+        </div>
+        <!-- Isi dari halaman kategori-indonesia -->
+        <div role="main" class="ui-content">
+            <center>
+                <div>
+                    <h2>Pernyataan 01</h2>
+                    <h1>Karena nila setitik, rusak susu sebelanga (karena kebaikan kecil, hilang segala kejahatan)</h1>
+                    <a href="#" class="benarButton" style="color: white">BENAR</a>
+                    <a href="#" class="salahButton" style="color: white">SALAH</a>
+                </div>
+            </center>
+            <button type="button" onclick="window.location.href='#halaman-kategori'">
+                Selesai
+            </button>
+        </div>
+        <!-- Footer dari halaman kategori-indonesia -->
+        <div data-role="footer">
+            <h4>@copyright, Fun Study</h4>
+        </div>
+    </div>
+
+    <!-- Memulai halaman aboutUs (HALAMAN ABOUT US) -->
+    <div id="aboutUs-page" data-role="page" class="ui-body-b">
+        <!-- Header dari halaman aboutUs -->
+        <div data-role="header">
+            <h1>Tentang Kami</h1>
+        </div>
+        <!-- Isi dari halaman aboutUs -->
+        <div role="main" class="ui-content">
+            <ul>
+                <li>ABROR MA`RUF</li>
+                <li>MUHAMMAD HASAN JOHAN ALFARIZI</li>
+                <li>MUHAMMAD WAHYU PAMENGAS</li>
+                <li>VIO CESAR MELANO YONANTA</li>
+            </ul>
+            <button type="button" onclick="window.location.href='#halaman-utama'">
+                Kembali
+            </button>
+        </div>
+        <!-- Footer dari halaman aboutUs -->
+        <div data-role="footer">
+            <h4>@copyright, Fun Study</h4>
+        </div>
+    </div>
+</body>
+</html>
