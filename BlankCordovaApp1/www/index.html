@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <script src="scripts/script.js"></script>
     <title>BlankCordovaApp1</title>
 </head>
 <body>
@@ -30,7 +29,7 @@
             <h1>Halaman Utama</h1>
         </div>
         <!-- Isi dari halaman pertama -->
-        <div role="main" class="ui-content" style="text-align:center;">
+        <div role="main" class="ui-content" style="text-align: center;">
             <img src="images/welcome-message.png" alt="welcome-message image" class="responsive">
             <p>Klik <a href="#halaman-login">di sini</a> untuk melanjutkan</p>
         </div>
@@ -184,12 +183,12 @@
         <div role="main" class="ui-content">
             <center>
                 <div>
-                    <form method="POST">
-                        <input type="image" src="images/button_matematika.png" alt="kategori_matematika" onclick="window.location.href='#halaman-kategori-matematika'" />
-                        <input type="image" src="images/button_biologi.png" alt="kategori_biologi" onclick="window.location.href='#halaman-kategori-biologi'" />
+                    <form>
+                        <input class="kategori" type="image" src="images/button_matematika.png" alt="matematika"/>
+                        <input class="kategori" type="image" src="images/button_biologi.png" alt="biologi" />
                         <br />
-                        <input type="image" src="images/button_sejarah.png" alt="kategori_sejarah" onclick="window.location.href='#halaman-kategori-sejarah'" />
-                        <input type="image" src="images/button_indonesia.png" alt="kategori_indonesia" onclick="window.location.href='#halaman-kategori-indonesia'" />
+                        <input class="kategori" type="image" src="images/button_sejarah.png" alt="sejarah" />
+                        <input class="kategori" type="image" src="images/button_indonesia.png" alt="indonesia"/>
                     </form>
                 </div>
             </center>
@@ -203,109 +202,11 @@
         </div>
     </div>
 
-    <!-- Memulai halaman kategori-matematika (HALAMAN KATEGORI MATEMATIKA) -->
-    <div id="halaman-kategori-matematika" data-role="page" class="ui-body-w">
-        <!-- Header dari halaman kategori-matematika -->
-        <div data-role="header">
-            <h1>MATEMATIKA</h1>
-        </div>
-        <!-- Isi dari halaman kategori-matematika -->
-        <div role="main" class="ui-content">
-            <center>
-                <div>
-                    <h2>Pernyataan 01</h2>
-                    <h1>1 + 1 = 3</h1>
-                    <a href="#" class="benarButton" style="color: white">BENAR</a>
-                    <a href="#" class="salahButton" style="color: white">SALAH</a>
-                </div>
-            </center>
-            <button type="button" onclick="window.location.href='#halaman-kategori'">
-                Selesai
-            </button>
-        </div>
-        <!-- Footer dari halaman kategori-matematika -->
-        <div data-role="footer">
-            <h4>@copyright, Fun Study</h4>
-        </div>
+    
+    <div id="halaman-main" data-role="page" class="ui-body-w">
+       
     </div>
-
-    <!-- Memulai halaman kategori-biologi (HALAMAN KATEGORI BIOLOGI) -->
-    <div id="halaman-kategori-biologi" data-role="page" class="ui-body-w">
-        <!-- Header dari halaman kategori-biologi -->
-        <div data-role="header">
-            <h1>BIOLOGI</h1>
-        </div>
-        <!-- Isi dari halaman kategori-biologi -->
-        <div role="main" class="ui-content">
-            <center>
-                <div>
-                    <h2>Pernyataan 01</h2>
-                    <h1>Fungsi hati adalah untuk mengatur sirkulasi hormon</h1>
-                    <a href="#" class="benarButton" style="color: white">BENAR</a>
-                    <a href="#" class="salahButton" style="color: white">SALAH</a>
-                </div>
-            </center>
-            <button type="button" onclick="window.location.href='#halaman-kategori'">
-                Selesai
-            </button>
-        </div>
-        <!-- Footer dari halaman kategori-biologi -->
-        <div data-role="footer">
-            <h4>@copyright, Fun Study</h4>
-        </div>
-    </div>
-
-    <!-- Memulai halaman kategori-sejarah (HALAMAN KATEGORI SEJARAH) -->
-    <div id="halaman-kategori-sejarah" data-role="page" class="ui-body-w">
-        <!-- Header dari halaman kategori-sejarah -->
-        <div data-role="header">
-            <h1>SEJARAH</h1>
-        </div>
-        <!-- Isi dari halaman kategori-sejarah -->
-        <div role="main" class="ui-content">
-            <center>
-                <div>
-                    <h2>Pernyataan 01</h2>
-                    <h1>Presiden pertama Indonesia adalah Soeharto</h1>
-                    <a href="#" class="benarButton" style="color: white">BENAR</a>
-                    <a href="#" class="salahButton" style="color: white">SALAH</a>
-                </div>
-            </center>
-            <button type="button" onclick="window.location.href='#halaman-kategori'">
-                Selesai
-            </button>
-        </div>
-        <!-- Footer dari halaman kategori-sejarah -->
-        <div data-role="footer">
-            <h4>@copyright, Fun Study</h4>
-        </div>
-    </div>
-
-    <!-- Memulai halaman kategori-indonesia (HALAMAN KATEGORI INDONESIA) -->
-    <div id="halaman-kategori-indonesia" data-role="page" class="ui-body-w">
-        <!-- Header dari halaman kategori-indonesia -->
-        <div data-role="header">
-            <h1>INDONESIA</h1>
-        </div>
-        <!-- Isi dari halaman kategori-indonesia -->
-        <div role="main" class="ui-content">
-            <center>
-                <div>
-                    <h2>Pernyataan 01</h2>
-                    <h1>Karena nila setitik, rusak susu sebelanga (karena kebaikan kecil, hilang segala kejahatan)</h1>
-                    <a href="#" class="benarButton" style="color: white">BENAR</a>
-                    <a href="#" class="salahButton" style="color: white">SALAH</a>
-                </div>
-            </center>
-            <button type="button" onclick="window.location.href='#halaman-kategori'">
-                Selesai
-            </button>
-        </div>
-        <!-- Footer dari halaman kategori-indonesia -->
-        <div data-role="footer">
-            <h4>@copyright, Fun Study</h4>
-        </div>
-    </div>
+    <script src="scripts/script.js"></script>
 
     <!-- Memulai halaman aboutUs (HALAMAN ABOUT US) -->
     <div id="aboutUs-page" data-role="page" class="ui-body-b">
