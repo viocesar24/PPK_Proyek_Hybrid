@@ -27,6 +27,7 @@ const startGame = async (kategori) => {
     indexSoal = 0;
 
     loadSoal(kategori, indexSoal++);
+    startTimer();
 }
 
 const animateCountdown = async (enter) => {
@@ -53,6 +54,16 @@ $('.kategori').on('click', function () {
     startGame($(this).attr('alt'));
 });
 
+var timerEnabled = false;
+var durasi = 0.0;
+const startTimer = async () => {
+    timerEnabled = true;
+    while (timerEnabled) {
+        await sleep(100);
+        durasi += 0.1;
+    }
+}
+
 var score = 0;
 var bonus = 0;
 var correct = 0;
@@ -66,6 +77,8 @@ const loadSoal = async (ktg, idx) => {
     },
         function (data, status) {
             if (data == 'finish') {
+                timerEnabled = false;
+                durasi -= totalSoal * 0.3;
                 $('.main-header center').html(`
                     <h1>SUMMARY</h1>
                 `);
@@ -81,7 +94,7 @@ const loadSoal = async (ktg, idx) => {
                                 Selesai
                             </button>
                         </center>
-                        <h3 style="position: absolute;right: 5%;bottom: 20%;">Durasi: 99 detik</h3>
+                        <h3 style="position: absolute;right: 5%;bottom: 20%;">Durasi: ${durasi.toFixed(2)} detik</h3>
                     </div>
                 `);
                 $('#panelMainMask').css('display', 'none');
@@ -95,6 +108,7 @@ const loadSoal = async (ktg, idx) => {
                 bonus = 0;
                 correct = 0;
                 totalSoal = 0;
+                durasi = 0.0;
             }
             else {
                 $('#halaman-main').html(data);
