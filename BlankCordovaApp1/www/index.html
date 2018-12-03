@@ -55,9 +55,7 @@
                 <input type="button" value="Masuk" id="submit" onclick="validasiLogin()" />
                 <p>Belum Punya Akun ? <a href="#halaman-daftar">Register</a></p>
             </form>
-            <button type="button" onclick="window.location.href='#halaman-awal'">
-                Kembali
-            </button>
+            <a href="#halaman-awal" role="button" data-role="button" class="ui-btn ui-input-btn ui-corner-all ui-shadow">Kembali</a>
         </div>
         <!-- Footer dari halaman kedua -->
         <div data-role="footer">
@@ -73,7 +71,7 @@
         </div>
         <!-- Isi dari halaman ketiga -->
         <div role="main" class="ui-content">
-            <form method="POST">
+            <form method="POST" onsubmit="window.location.href=this.action; return false;">
                 <label for="nama">
                     <b>
                         Nama
@@ -98,13 +96,9 @@
                     </b>
                 </label>
                 <input type="password" placeholder="Ulang Kata Sandi" name="ulang_psw" required>
-                <button type="submit">
-                    Daftar
-                </button>
+                <input type="submit" value="Daftar" />
             </form>
-            <button type="button" onclick="window.location.href='#halaman-login'">
-                Kembali ke halaman Masuk
-            </button>
+            <a href="#halaman-login" role="button" data-role="button" class="ui-btn ui-input-btn ui-corner-all ui-shadow">Kembali ke halaman masuk</a>
         </div>
         <!-- Footer dari halaman ketiga -->
         <div data-role="footer">
@@ -113,22 +107,51 @@
     </div>
 
     <!-- Memulai halaman profil (HALAMAN PROFIL) -->
-    <div id="halaman-profil" data-role="page" class="ui-body-b">
+    <div id="halaman-profil" data-role="page" class="ui-body-a">
         <!-- Header dari halaman profil -->
         <div data-role="header">
             <h1>Menu Profil</h1>
-            <a href="#left-panel-profil" data-theme="d" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-icon-nodisc">Open left panel</a>
+            <a href="#left-panel-profil" data-theme="a" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-icon-nodisc">Open left panel</a>
+        </div>
+        <!-- Memulai panel samping kiri -->
+        <div id="left-panel-profil" data-role="panel" data-theme="a" data-display="push">
+            <!-- Isi dari panel samping kiri -->
+            <a href="#halaman-utama" role="button" data-role="button" class="ui-btn ui-input-btn ui-corner-all ui-shadow">Menu Utama</a>
+            <a href="#aboutUs-page" role="button" data-role="button" class="ui-btn ui-input-btn ui-corner-all ui-shadow">Tentang Kami</a>
+            <a href="#halaman-login" role="button" data-role="button" class="ui-btn ui-input-btn ui-corner-all ui-shadow">Keluar</a>
         </div>
         <!-- Isi dari halaman profil -->
         <div role="main" class="ui-content">
-            <h1>USER</h1>
-        </div>
-        <!-- Memulai panel samping kiri -->
-        <div id="left-panel-profil" data-role="panel" data-theme="b" data-display="push">
-            <!-- Isi dari panel samping kiri -->
-            <button type="button" onclick="window.location.href='#halaman-kategori'">Pilih Kategori</button>
-            <button type="button" onclick="window.location.href='#aboutUs-page'">Tentang Kami</button>
-            <button type="button" onclick="window.location.href='#halaman-login'">Keluar</button>
+            <h1 style="text-align: center;">PLAYER</h1>
+            <h2 style="text-align: center;">Your Score : 999999</h2>
+            <form method="POST" onsubmit="window.location.href=this.action; return false;">
+                <label for="nama">
+                    Nama
+                </label>
+                <input name="nama" type="text" placeholder="Nama" value="Nama_Player_JSON" required />
+                <label for="uname">
+                    Nama Pengguna
+                </label>
+                <input name="uname" type="text" placeholder="Nama Pengguna" value="NamaPengguna_Player_JSON" required />
+                <label for="katasandi">
+                    Kata Sandi
+                </label>
+                <input name="katasandi" type="text" placeholder="Kata Sandi" value="KataSandi_Player_JSON" required />
+                <label for="ulangkatasandi">
+                    Ulang Kata Sandi
+                </label>
+                <input name="ulangkatasandi" type="text" placeholder="Ulang Kata Sandi" value="UlangKataSandi_Player_JSON" required />
+                <p>Alert untuk Edit</p>
+                <div class="container-button">
+                    <div class="button-dua-merge-kiri">
+                        <input name="tombol_edit" value="Edit" type="submit" />
+                    </div>
+                    <div class="button-dua-merge-kanan">
+                        <a href="#dialog-hapusakun" role="button" class="ui-btn ui-input-btn ui-corner-all ui-shadow" data-transition="flip">Hapus Akun</a>
+                    </div>
+                </div>
+                <a href="#halaman-utama" role="button" data-role="button" class="ui-btn ui-input-btn ui-corner-all ui-shadow">Kembali</a>
+            </form>
         </div>
         <!-- Footer dari halaman keempat -->
         <div data-role="footer">
@@ -136,35 +159,57 @@
         </div>
     </div>
 
+    <!-- Memulai dialog-hapusakun (HALAMAN DIALOG-HAPUSAKUN) -->
+    <div id="dialog-hapusakun" data-role="page" class="ui-body-b">
+        <!-- Container Dialog dari dialog-hapusakun -->
+        <div role="dialog" class="ui-dialog-contain ui-overlay-shadow ui-corner-all">
+            <!-- Header dari halaman aboutUs -->
+            <div data-role="header" data-theme="b" role="banner" class="ui-header ui-bar-b">
+                <a href="#halaman-profil" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right" data-rel="back">Close</a>
+                <h1 class="ui-title" role="heading">PERHATIAN !!!</h1>
+            </div>
+            <!-- Isi dari halaman aboutUs -->
+            <div role="main" class="ui-content">
+                <h1 style="text-align: center">HAPUS AKUN</h1>
+                <h2 style="text-align: center">Apakah Anda yakin ?</h2>
+                <div class="container-button">
+                    <div class="button-dua-merge-kiri">
+                        <button type="button" onclick="">YA</button>
+                    </div>
+                    <div class="button-dua-merge-kanan">
+                        <a href="#halaman-profil" role="button" data-role="button" class="ui-btn ui-input-btn ui-corner-all ui-shadow" data-rel="back">TIDAK</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer dari halaman aboutUs -->
+            <div data-role="footer">
+                <h4>@copyright, Fun Study</h4>
+            </div>
+        </div>
+    </div>
+
     <!-- Memulai halaman keempat (HALAMAN UTAMA) -->
-    <div id="halaman-utama" data-role="page" class="ui-body-b">
+    <div id="halaman-utama" data-role="page" class="ui-body-a">
         <!-- Header dari halaman keempat -->
         <div data-role="header">
             <h1>Menu Utama</h1>
-            <a href="#left-panel-halamanUtama" data-theme="d" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-icon-nodisc"></a>
+            <a href="#left-panel-halamanUtama" data-theme="a" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-icon-nodisc"></a>
+        </div>
+        <!-- Memulai panel samping kiri -->
+        <div id="left-panel-halamanUtama" data-role="panel" data-theme="a" data-display="push">
+            <!-- Isi dari panel samping kiri -->
+            <a href="#halaman-profil" role="button" data-role="button" class="ui-btn ui-input-btn ui-corner-all ui-shadow">Profil</a>
+            <a href="#aboutUs-page" role="button" data-role="button" class="ui-btn ui-input-btn ui-corner-all ui-shadow">Tentang Kami</a>
+            <a href="#halaman-login" role="button" data-role="button" class="ui-btn ui-input-btn ui-corner-all ui-shadow">Keluar</a>
         </div>
         <!-- Isi dari halaman keempat -->
         <div role="main" class="ui-content">
             <p id="usertext">User/Guest</p>
             <br />
-            <button type="button" onclick="window.location.href='#halaman-kategori'">
-                Yuk Main!
-            </button>
-            <button type="button" onclick="window.location.href='#aboutUs-page'">
-                Tentang Kami...
-            </button>
+            <a href="#halaman-kategori" role="button" data-role="button" class="ui-btn ui-input-btn ui-corner-all ui-shadow">Yuk Main!</a>
+            <a href="#aboutUs-page" role="button" data-role="button" class="ui-btn ui-input-btn ui-corner-all ui-shadow">Tentang Kami...</a>
             <br />
-            <button type="button" onclick="window.location.href='#halaman-login'">
-                Keluar
-            </button>
-        </div>
-        <!-- Memulai panel samping kiri -->
-        <div id="left-panel-halamanUtama" data-role="panel" data-theme="b" data-display="push">
-            <!-- Isi dari panel samping kiri -->
-            <button type="button" onclick="window.location.href='#halaman-profil'">Profil</button>
-            <button type="button" onclick="window.location.href='#halaman-kategori'">Pilih Kategori</button>
-            <button type="button" onclick="window.location.href='#aboutUs-page'">Tentang Kami</button>
-            <button type="button" onclick="window.location.href='#halaman-login'">Keluar</button>
+            <a href="#halaman-login" role="button" data-role="button" class="ui-btn ui-input-btn ui-corner-all ui-shadow">Keluar</a>
         </div>
         <!-- Footer dari halaman keempat -->
         <div data-role="footer">
@@ -183,27 +228,25 @@
             <center>
                 <div>
                     <form>
-                        <input class="kategori" type="image" src="images/button_matematika.png" alt="matematika"/>
+                        <input class="kategori" type="image" src="images/button_matematika.png" alt="matematika" />
                         <input class="kategori" type="image" src="images/button_biologi.png" alt="biologi" />
                         <br />
                         <input class="kategori" type="image" src="images/button_sejarah.png" alt="sejarah" />
-                        <input class="kategori" type="image" src="images/button_indonesia.png" alt="indonesia"/>
+                        <input class="kategori" type="image" src="images/button_indonesia.png" alt="indonesia" />
                     </form>
                 </div>
             </center>
+            <a href="#halaman-utama" role="button" data-role="button" class="ui-btn ui-input-btn ui-corner-all ui-shadow">Kembali</a>
         </div>
-        <button type="button" onclick="window.location.href='#halaman-utama'">
-            Kembali
-        </button>
         <!-- Footer dari halaman YukMain -> Halaman Pilih Kategori -->
         <div data-role="footer">
             <h4>@copyright, Fun Study</h4>
         </div>
     </div>
 
-    
+    <!-- Memulai halaman main (HALAMAN YukMain -> Halaman Pilih Kategori -> Halaman Main) -->
     <div id="halaman-main" data-role="page" class="ui-body-w">
-       
+
     </div>
     <script src="scripts/script.js"></script>
 
@@ -221,9 +264,7 @@
                 <li>MUHAMMAD WAHYU PAMENGAS</li>
                 <li>VIO CESAR MELANO YONANTA</li>
             </ul>
-            <button type="button" onclick="window.location.href='#halaman-utama'">
-                Kembali
-            </button>
+            <a href="#halaman-utama" role="button" data-role="button" class="ui-btn ui-input-btn ui-corner-all ui-shadow">Kembali</a>
         </div>
         <!-- Footer dari halaman aboutUs -->
         <div data-role="footer">

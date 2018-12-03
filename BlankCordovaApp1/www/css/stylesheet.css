@@ -14,7 +14,7 @@
     margin: 0 auto;
 }
 
-#panelMainBackground{
+#panelMainBackground {
     position: absolute;
     bottom: 0px;
     height: 100%;
@@ -23,11 +23,11 @@
     background-color: white;
 }
 
-#panelMainBackground center{
-    position: relative;
-    top: 30%;
-    z-index: 2;
-}
+    #panelMainBackground center {
+        position: relative;
+        top: 30%;
+        z-index: 2;
+    }
 
 #panelMainMask {
     position: absolute;
@@ -78,16 +78,16 @@ table {
     justify-content: center;
 }
 
-.button-crud-soal {
+.button-dua-merge-kiri {
     float: left;
-    width: 30%;
-    margin: 0 1% 0 1%;
+    width: 50%;
+    margin: 0 1% 0 0;
 }
 
-.button-login {
+.button-dua-merge-kanan {
     float: left;
-    display: inline-block;
-    margin: 2%;
+    width: 50%;
+    margin: 0 0 0 1%;
 }
 
 .benarButton {
