@@ -1,16 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <!--
-        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
-        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
-    -->
-    <!--
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
-    -->
-
     <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" />
-
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
@@ -126,16 +117,15 @@
         <!-- Header dari halaman profil -->
         <div data-role="header">
             <h1>Menu Profil</h1>
-            <a href="#left-panel" data-theme="d" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-icon-nodisc">Open left panel</a>
+            <a href="#left-panel-profil" data-theme="d" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-icon-nodisc">Open left panel</a>
         </div>
         <!-- Isi dari halaman profil -->
         <div role="main" class="ui-content">
             <h1>USER</h1>
         </div>
         <!-- Memulai panel samping kiri -->
-        <div id="left-panel" data-role="panel" data-theme="b" data-display="push">
+        <div id="left-panel-profil" data-role="panel" data-theme="b" data-display="push">
             <!-- Isi dari panel samping kiri -->
-            <button type="button" onclick="window.location.href='#halaman-profil'">Profil</button>
             <button type="button" onclick="window.location.href='#halaman-kategori'">Pilih Kategori</button>
             <button type="button" onclick="window.location.href='#aboutUs-page'">Tentang Kami</button>
             <button type="button" onclick="window.location.href='#halaman-login'">Keluar</button>
@@ -151,6 +141,7 @@
         <!-- Header dari halaman keempat -->
         <div data-role="header">
             <h1>Menu Utama</h1>
+            <a href="#left-panel-halamanUtama" data-theme="d" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-icon-nodisc"></a>
         </div>
         <!-- Isi dari halaman keempat -->
         <div role="main" class="ui-content">
@@ -166,6 +157,14 @@
             <button type="button" onclick="window.location.href='#halaman-login'">
                 Keluar
             </button>
+        </div>
+        <!-- Memulai panel samping kiri -->
+        <div id="left-panel-halamanUtama" data-role="panel" data-theme="b" data-display="push">
+            <!-- Isi dari panel samping kiri -->
+            <button type="button" onclick="window.location.href='#halaman-profil'">Profil</button>
+            <button type="button" onclick="window.location.href='#halaman-kategori'">Pilih Kategori</button>
+            <button type="button" onclick="window.location.href='#aboutUs-page'">Tentang Kami</button>
+            <button type="button" onclick="window.location.href='#halaman-login'">Keluar</button>
         </div>
         <!-- Footer dari halaman keempat -->
         <div data-role="footer">
