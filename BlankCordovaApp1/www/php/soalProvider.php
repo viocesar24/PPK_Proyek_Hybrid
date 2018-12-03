@@ -76,6 +76,7 @@ else {
           </div>
     <!-- Isi -->
     <div role="main" class="ui-content" id="panelMainBackground">
+        <div id="panelMainFlash"></div>
         <div id="panelMainMask"></div>
         <center>
             <span id="spanDurasi" style="display: none;">' . $selSoal->Durasi . '</span>

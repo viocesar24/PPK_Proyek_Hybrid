@@ -64,6 +64,19 @@ const startTimer = async () => {
     }
 }
 
+const flash = async (correct) => {
+    if (correct == true) {
+        $('#panelMainFlash').css('background', '#90ee90'); // lightgreen
+    }
+    else {
+        $('#panelMainFlash').css('background', '#f08080'); // lightcoral
+    }
+    
+    $('#panelMainFlash').show();
+    await sleep(600);
+    $('#panelMainFlash').hide();
+}
+
 var score = 0;
 var bonus = 0;
 var correct = 0;
@@ -123,41 +136,42 @@ const loadSoal = async (ktg, idx) => {
 
                 $('#panelMainBackground').animate({
                     left: '0%'
-                }, 300, 'swing', function () {
+                }, 300, 'swing', function() {
                     $('#panelMainMask').animate({
                         left: '100%'
                     }, {
                             duration: parseInt($('#spanDurasi').html()) * 1000,
                             easing: 'linear',
-                            step: function () {
+                            step: async () => {
                                 if (answer != -1) {
                                     $('#panelMainMask').stop();
+                                    $('#panelMainMask').animate({
+                                        left: '100%'
+                                    }, 1, 'linear');
                                     if (answer == 1) {
                                         score += 100 + bonus;
                                         bonus += 10;
                                         correct++;
+                                        await flash(true);
                                     }
                                     else {
                                         bonus = 0;
+                                        await flash(false);
                                     }
                                     answer = -1;
-                                    $('#panelMainBackground').animate({
-                                        left: '100%'
-                                    }, 300, 'swing', function () {
-                                        loadSoal(ktg, ++idx);
-                                    });
                                     totalSoal++;
+
+                                    loadSoal(ktg, ++idx);
+                                    
                                     return;
                                 }
                             },
-                            complete: function () {
+                            complete: async () => {
                                 bonus = 0;
                                 answer = -1;
-                                $('#panelMainBackground').animate({
-                                    left: '100%'
-                                }, 300, 'swing', function () {
-                                    loadSoal(ktg, ++idx);
-                                });
+                                await flash(false);
+
+                                loadSoal(ktg, ++idx);
                                 totalSoal++;
                             }
                         });
