@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "http://localhost/PPK_Proyek_Hybrid/BlankCordovaApp1/www",
+            "url": "http://localhost/PPK_Proyek_Hybrid/BlankCordovaApp1/www/index.html",
             "webRoot": "${workspaceFolder}"
         }
     ]

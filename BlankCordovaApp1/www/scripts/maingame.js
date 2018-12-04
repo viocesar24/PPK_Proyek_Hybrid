@@ -39,7 +39,7 @@ const animateCountdown = async (enter) => {
 
 const UpdateAchievement = function (added_score) {
     var totalScore = Number.parseInt(user.score) + Number.parseInt(added_score);
-    $.post('php/ubah_score.php', {
+    $.post('http://darkflame-webservice.000webhostapp.com/services/funstudy/php/ubah_score.php', {
         username: user.username,
         score: totalScore
     }, function(data, status){
@@ -89,7 +89,7 @@ var totalSoal = 0;
 var answer = -1;
 const loadSoal = async (ktg, idx) => {
     answer = -1;
-    $.post('php/soalProvider.php', {
+    $.post('http://darkflame-webservice.000webhostapp.com/services/funstudy/php/soalProvider.php', {
         kategori: ktg,
         index: idx
     },
@@ -130,7 +130,7 @@ const loadSoal = async (ktg, idx) => {
                             UpdateAchievement(score);
                             $('#score-label').css('display', 'none');
                             $('#score-holder').html(
-                                `<img src="images/${isGood ? "good" : "bad"}.jpg" alt="komentar" style="max-width: 65vw; margin-top: 5%;">`
+                                `<img src="http://darkflame-webservice.000webhostapp.com/services/funstudy/images/${isGood ? "good" : "bad"}.jpg" alt="komentar" style="max-width: 65vw; margin-top: 5%;">`
                             );
                             $('#score-holder').animate({
                                 opacity: '1'
