@@ -80,13 +80,13 @@ const loadSoal = async (ktg, idx) => {
                 timerEnabled = false;
                 durasi -= totalSoal * 0.3;
                 $('#halaman-main').animate({ opacity: '0' }, 500, 'linear', function () {
-                    $('.main-header center').html(`
-                    <h1>SUMMARY</h1>
-                `);
                     $('#panelMainBackground').css('padding', '0px');
-                    $('#panelMainBackground center').css('top', '20%');
+                    $('#panelMainBackground center').css('top', '0%');
                     $('#panelMainBackground center').html(`
-                    <div id="score-label" style="font-size: 1.5em;">FINAL SCORE</div>
+                    <div data-role="header" role="banner" class="ui-header ui-bar-inherit">
+                        <h1 class="ui-title" role="heading" aria-level="1" style="font-size: 2em;">SUMMARY</h1>
+                    </div>
+                    <div id="score-label" style="font-size: 1.5em; margin-top: 3%;">FINAL SCORE</div>
                     <div id="score-holder" style="font-size: 12em; top: 0px;">${score}</div>
                     <div style="bottom: 0%;height: 15%;width: 100vw;">
                         <h3 style="position: absolute;left: 5%;bottom: 20%;">Benar: ${correct}/${totalSoal}</h3>
@@ -97,6 +97,9 @@ const loadSoal = async (ktg, idx) => {
                         </center>
                         <h3 style="position: absolute;right: 5%;bottom: 20%;">Durasi: ${durasi.toFixed(2)} detik</h3>
                     </div>
+                    <div data-role="footer" role="contentinfo" class="ui-footer ui-bar-inherit">
+                        <h4 class="ui-title" role="heading" aria-level="1">@copyright, Fun Study</h4>
+                    </div>
                 `);
                     var isGood = correct > Math.floor(totalSoal / 2.0);
                     $('#panelMainMask').css('display', 'none');
@@ -106,7 +109,7 @@ const loadSoal = async (ktg, idx) => {
                         }, 400, 'linear', function () {
                             $('#score-label').css('display', 'none');
                             $('#score-holder').html(
-                                `<img src="images/${isGood ? "good" : "bad"}.jpg" alt="komentar" style="max-width: 65vw;">`
+                                `<img src="images/${isGood ? "good" : "bad"}.jpg" alt="komentar" style="max-width: 65vw; margin-top: 3%;">`
                             );
                             $('#score-holder').animate({
                                 opacity: '1'

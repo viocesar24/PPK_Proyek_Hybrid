@@ -69,11 +69,7 @@ else {
     }
     
     
-    echo '<div data-role="header" class="main-header">
-            <center>
-                <h1>'.strtoupper($_POST['kategori']).'</h1>
-            </center>
-          </div>
+    echo '
     <!-- Isi -->
     <div role="main" class="ui-content" id="panelMainBackground">
         <div id="panelMainFlash"></div>
@@ -84,12 +80,6 @@ else {
             <h1>' . $selSoal->Soal . '</h1>
             <a href="#" class="benarButton' . $kelasBenar . '" style="color: white">BENAR</a>
             <a href="#" class="salahButton' . $kelasSalah . '" style="color: white">SALAH</a>
-        </center>
-    </div>
-    <!-- Footer -->
-    <div data-role="footer" class="main-footer">
-        <center>
-            <h4>@copyright, Fun Study</h4>
         </center>
     </div>';
 }
