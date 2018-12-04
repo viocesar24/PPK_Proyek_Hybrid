@@ -14,7 +14,7 @@
     margin: 0 auto;
 }
 
-#panelMainBackground{
+#panelMainBackground {
     position: absolute;
     bottom: 0px;
     height: 100%;
@@ -31,36 +31,70 @@
     width: 100%;
     background: #f08080;
     z-index: 2;
-
     -webkit-animation: flickerAnimation .2s infinite;
-     -moz-animation: flickerAnimation .2s infinite;
-     -o-animation: flickerAnimation .2s infinite;
-      animation: flickerAnimation .2s infinite;
+    -moz-animation: flickerAnimation .2s infinite;
+    -o-animation: flickerAnimation .2s infinite;
+    animation: flickerAnimation .2s infinite;
 }
 
 @keyframes flickerAnimation {
-    0%   { opacity:1; }
-    50%  { opacity:0; }
-    100% { opacity:1; }
-  }
-  @-o-keyframes flickerAnimation{
-    0%   { opacity:1; }
-    50%  { opacity:0; }
-    100% { opacity:1; }
-  }
-  @-moz-keyframes flickerAnimation{
-    0%   { opacity:1; }
-    50%  { opacity:0; }
-    100% { opacity:1; }
-  }
-  @-webkit-keyframes flickerAnimation{
-    0%   { opacity:1; }
-    50%  { opacity:0; }
-    100% { opacity:1; }
-  }
-  
+    0% {
+        opacity: 1;
+    }
 
-#panelMainBackground center{
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes flickerAnimation {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes flickerAnimation {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes flickerAnimation {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+#panelMainBackground center {
     position: relative;
     top: 30%;
     z-index: 3;
@@ -115,10 +149,16 @@ table {
     justify-content: center;
 }
 
-.button-crud-soal {
+.button-dua-merge-kiri {
     float: left;
-    width: 30%;
-    margin: 0 1% 0 1%;
+    width: 50%;
+    margin: 0 1% 0 0;
+}
+
+.button-dua-merge-kanan {
+    float: left;
+    width: 50%;
+    margin: 0 0 0 1%;
 }
 
 .button-login {
