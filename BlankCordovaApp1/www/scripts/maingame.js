@@ -105,7 +105,7 @@ const loadSoal = async (ktg, idx) => {
                         <h1 class="ui-title" role="heading" aria-level="1" style="font-size: 7vw;">SUMMARY</h1>
                     </div>
                     <div id="score-label" style="font-size: 10vw; margin-top: 5%;">FINAL SCORE</div>
-                    <div id="score-holder" style="font-size: 50vw; top: 0px;">${score}</div>
+                    <div id="score-holder" style="font-size: 40vw; top: 0px;">${score}</div>
                     <div style="bottom: 0%;height: 15%;width: 100vw;">
                         <h3 style="position: absolute;left: 5%;bottom: 20%;">Benar: ${correct}/${totalSoal}</h3>
                         <center style="margin-top: 100px;">
