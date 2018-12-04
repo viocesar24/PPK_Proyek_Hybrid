@@ -21,7 +21,7 @@
         </div>
         <!-- Isi dari halaman pertama -->
         <div role="main" class="ui-content" style="text-align: center;">
-            <img src="images/welcome-message.png" alt="welcome-message image" class="responsive">
+            <img src="images/welcome-logo.png" alt="welcome-message image" class="responsive">
             <p>Klik <a href="#halaman-login">di sini</a> untuk melanjutkan</p>
         </div>
         <!-- Footer dari halaman pertama -->
@@ -52,7 +52,7 @@
                 </label>
                 <input type="password" id="password" placeholder="Enter Password" name="password" required>
                 <p id="alert-login"></p>
-                <input type="button" value="Masuk" onclick="Login()" />
+                <input type="button" value="Masuk" onclick="validasiLogin()" />
                 <p>Belum Punya Akun ? <a href="#halaman-daftar">Register</a></p>
             </form>
             <a href="#halaman-awal" role="button" data-role="button" class="ui-btn ui-input-btn ui-corner-all ui-shadow">Kembali</a>
@@ -122,30 +122,29 @@
         </div>
         <!-- Isi dari halaman profil -->
         <div role="main" class="ui-content">
-            <h1 style="text-align: center;" id="profil-nama">PLAYER</h1>
-            <h2 style="text-align: center;" id="profil-score">Your Score : 999999</h2>
-            <h3>Ubah Profil</h3>
+            <h1 style="text-align: center;">PLAYER</h1>
+            <h2 style="text-align: center;">Your Score : 999999</h2>
             <form method="POST" onsubmit="window.location.href=this.action; return false;">
                 <label for="nama">
                     Nama
                 </label>
-                <input id="profil-input-nama" name="nama" type="text" placeholder="Nama" value="Nama_Player_JSON" required />
+                <input name="nama" type="text" placeholder="Nama" value="Nama_Player_JSON" required />
                 <label for="uname">
                     Nama Pengguna
                 </label>
-                <input id="profil-input-username" name="uname" type="text" placeholder="Nama Pengguna" value="NamaPengguna_Player_JSON" required />
+                <input name="uname" type="text" placeholder="Nama Pengguna" value="NamaPengguna_Player_JSON" required />
                 <label for="katasandi">
-                    Kata Sandi Sekarang
+                    Kata Sandi
                 </label>
-                <input id="profil-input-password1" name="katasandi" type="password" placeholder="Kata Sandi" value="KataSandi_Player_JSON" required />
+                <input name="katasandi" type="text" placeholder="Kata Sandi" value="KataSandi_Player_JSON" required />
                 <label for="ulangkatasandi">
-                    Kata Sandi Baru
+                    Ulang Kata Sandi
                 </label>
-                <input id="profil-input-password2" name="ulangkatasandi" type="password" placeholder="Ulang Kata Sandi" value="UlangKataSandi_Player_JSON" required />
-                <p id="profil-alert" style="color:red;"></p>
+                <input name="ulangkatasandi" type="text" placeholder="Ulang Kata Sandi" value="UlangKataSandi_Player_JSON" required />
+                <p>Alert untuk Edit</p>
                 <div class="container-button">
                     <div class="button-dua-merge-kiri">
-                        <input id="profil-input-edit" name="tombol_edit" value="Edit" type="submit" />
+                        <input name="tombol_edit" value="Edit" type="submit" />
                     </div>
                     <div class="button-dua-merge-kanan">
                         <a href="#dialog-hapusakun" role="button" class="ui-btn ui-input-btn ui-corner-all ui-shadow" data-transition="flip">Hapus Akun</a>
@@ -166,7 +165,7 @@
         <div role="dialog" class="ui-dialog-contain ui-overlay-shadow ui-corner-all">
             <!-- Header dari halaman aboutUs -->
             <div data-role="header" data-theme="b" role="banner" class="ui-header ui-bar-b">
-                <a href="#halaman-profil" class="profil-btn ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right" data-rel="back">Close</a>
+                <a href="#halaman-profil" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right" data-rel="back">Close</a>
                 <h1 class="ui-title" role="heading">PERHATIAN !!!</h1>
             </div>
             <!-- Isi dari halaman aboutUs -->
@@ -178,7 +177,7 @@
                         <button type="button" onclick="">YA</button>
                     </div>
                     <div class="button-dua-merge-kanan">
-                        <a href="#halaman-profil" role="button" data-role="button" class="profil-btn ui-btn ui-input-btn ui-corner-all ui-shadow" data-rel="back">TIDAK</a>
+                        <a href="#halaman-profil" role="button" data-role="button" class="ui-btn ui-input-btn ui-corner-all ui-shadow" data-rel="back">TIDAK</a>
                     </div>
                 </div>
             </div>
@@ -199,13 +198,13 @@
         <!-- Memulai panel samping kiri -->
         <div id="left-panel-halamanUtama" data-role="panel" data-theme="a" data-display="push">
             <!-- Isi dari panel samping kiri -->
-            <a href="#halaman-profil" role="button" data-role="button" class="profil-btn ui-btn ui-input-btn ui-corner-all ui-shadow">Profil</a>
+            <a href="#halaman-profil" role="button" data-role="button" class="ui-btn ui-input-btn ui-corner-all ui-shadow">Profil</a>
             <a href="#aboutUs-page" role="button" data-role="button" class="ui-btn ui-input-btn ui-corner-all ui-shadow">Tentang Kami</a>
             <a href="#halaman-login" role="button" data-role="button" class="ui-btn ui-input-btn ui-corner-all ui-shadow">Keluar</a>
         </div>
         <!-- Isi dari halaman keempat -->
         <div role="main" class="ui-content">
-            <div id="usertext" class="profil-btn" style="text-align:right; color: blue; font-weight: bold; font-size: 1.3em;">User/Guest</div>
+            <p id="usertext">User/Guest</p>
             <br />
             <a href="#halaman-kategori" role="button" data-role="button" class="ui-btn ui-input-btn ui-corner-all ui-shadow">Yuk Main!</a>
             <a href="#aboutUs-page" role="button" data-role="button" class="ui-btn ui-input-btn ui-corner-all ui-shadow">Tentang Kami...</a>
@@ -247,9 +246,11 @@
 
     <!-- Memulai halaman main (HALAMAN YukMain -> Halaman Pilih Kategori -> Halaman Main) -->
     <div id="halaman-main" data-role="page" class="ui-body-w">
-
+        <div data-role="footer">
+            <h4>@copyright, Fun Study</h4>
+        </div>
     </div>
-    <script src="scripts/maingame.js"></script>
+    <script src="scripts/script.js"></script>
 
     <!-- Memulai halaman aboutUs (HALAMAN ABOUT US) -->
     <div id="aboutUs-page" data-role="page" class="ui-body-b">
@@ -272,6 +273,5 @@
             <h4>@copyright, Fun Study</h4>
         </div>
     </div>
-    <script src="scripts/crud.js"></script>
 </body>
 </html>
