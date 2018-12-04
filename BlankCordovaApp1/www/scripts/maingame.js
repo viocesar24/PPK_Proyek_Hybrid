@@ -37,6 +37,24 @@ const animateCountdown = async (enter) => {
     }
 }
 
+const UpdateAchievement = function (added_score) {
+    var totalScore = Number.parseInt(user.score) + Number.parseInt(added_score);
+    $.post('php/ubah_score.php', {
+        username: user.username,
+        score: totalScore
+    }, function(data, status){
+        if (data == 'success') {
+            $('#alert-scoreupdate').css('color', 'green');
+            $('#alert-scoreupdate').html('Total score: ' + totalScore);
+            user.score = totalScore;
+        }
+        else {
+            $('#alert-scoreupdate').css('color', 'red');
+            $('#alert-scoreupdate').html('Score tidak dapat diupdate. Mohon cek koneksi anda.');
+        }
+    });
+}
+
 $('.kategori').on('click', function () {
     startGame($(this).attr('alt'));
 });
@@ -91,6 +109,7 @@ const loadSoal = async (ktg, idx) => {
                     <div style="bottom: 0%;height: 15%;width: 100vw;">
                         <h3 style="position: absolute;left: 5%;bottom: 20%;">Benar: ${correct}/${totalSoal}</h3>
                         <center style="margin-top: 100px;">
+                            <div id="alert-scoreupdate" style="text-align: center;"></div>
                             <button class="ui-btn selesai-button">
                                 Selanjutnya
                             </button>
@@ -104,9 +123,11 @@ const loadSoal = async (ktg, idx) => {
                     var isGood = correct > Math.floor(totalSoal / 2.0);
                     $('#panelMainMask').css('display', 'none');
                     $('.selesai-button').on('click', function () {
+                        $('.selesai-button').unbind('click');
                         $('#score-holder').animate({
                             opacity: '0'
                         }, 400, 'linear', function () {
+                            UpdateAchievement(score);
                             $('#score-label').css('display', 'none');
                             $('#score-holder').html(
                                 `<img src="images/${isGood ? "good" : "bad"}.jpg" alt="komentar" style="max-width: 65vw; margin-top: 3%;">`
@@ -116,8 +137,17 @@ const loadSoal = async (ktg, idx) => {
                             }, 400, 'linear', function () {
                                 $('.selesai-button').html('Selesai');
                                 $('.selesai-button').on('click', function () {
+                                    $('.selesai-button').unbind('click');
+
                                     $('#halaman-main').html('');
                                     $.mobile.navigate("#halaman-kategori");
+
+                                    $('#alert-scoreupdate').html('');
+                                    score = 0;
+                                    bonus = 0;
+                                    correct = 0;
+                                    totalSoal = 0;
+                                    durasi = 0.0;
                                 });
                             });
                         });
@@ -125,12 +155,6 @@ const loadSoal = async (ktg, idx) => {
                     $('#panelMainBackground').animate({
                         left: '0%'
                     }, 300, 'swing');
-                    score = 0;
-                    bonus = 0;
-                    correct = 0;
-                    totalSoal = 0;
-                    durasi = 0.0;
-
                     $('#halaman-main').animate({ opacity: '1' }, 500, 'linear');
                 });
             }

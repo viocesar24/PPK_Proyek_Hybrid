@@ -22,10 +22,6 @@ function Register() {
 
 }
 
-function LoadAchievement(){
-
-}
-
 $('#usertext').on('mouseup', function(){
     $.mobile.navigate('#halaman-profil');
 });
@@ -75,4 +71,10 @@ $('#profil-input-edit').on('click',function(){
             $('#profil-alert').html('Gagal menyimpan profil. Mohon cek koneksi anda.');
         }
     });
+});
+
+$('.logout-btn').on('mousedown', function() {
+    $('#alert-login').html('');
+    $('#username').val('');
+    $('#password').val('');
 });
