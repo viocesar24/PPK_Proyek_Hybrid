@@ -102,10 +102,10 @@ const loadSoal = async (ktg, idx) => {
                     $('#panelMainBackground center').css('top', '0%');
                     $('#panelMainBackground center').html(`
                     <div data-role="header" role="banner" class="ui-header ui-bar-inherit">
-                        <h1 class="ui-title" role="heading" aria-level="1" style="font-size: 2em;">SUMMARY</h1>
+                        <h1 class="ui-title" role="heading" aria-level="1" style="font-size: 7vw;">SUMMARY</h1>
                     </div>
-                    <div id="score-label" style="font-size: 1.5em; margin-top: 3%;">FINAL SCORE</div>
-                    <div id="score-holder" style="font-size: 12em; top: 0px;">${score}</div>
+                    <div id="score-label" style="font-size: 10vw; margin-top: 5%;">FINAL SCORE</div>
+                    <div id="score-holder" style="font-size: 50vw; top: 0px;">${score}</div>
                     <div style="bottom: 0%;height: 15%;width: 100vw;">
                         <h3 style="position: absolute;left: 5%;bottom: 20%;">Benar: ${correct}/${totalSoal}</h3>
                         <center style="margin-top: 100px;">
@@ -130,7 +130,7 @@ const loadSoal = async (ktg, idx) => {
                             UpdateAchievement(score);
                             $('#score-label').css('display', 'none');
                             $('#score-holder').html(
-                                `<img src="images/${isGood ? "good" : "bad"}.jpg" alt="komentar" style="max-width: 65vw; margin-top: 3%;">`
+                                `<img src="images/${isGood ? "good" : "bad"}.jpg" alt="komentar" style="max-width: 65vw; margin-top: 5%;">`
                             );
                             $('#score-holder').animate({
                                 opacity: '1'
