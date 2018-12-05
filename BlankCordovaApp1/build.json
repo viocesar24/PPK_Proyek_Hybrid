@@ -1,11 +1,11 @@
 {
      "android": {
-         "release": {
-             "keystore": "",
-             "storePassword": "",
-             "alias": "",
-             "password" : "",
-             "keystoreType": ""
-         }
+      "release": {
+        "keystore": "C:\\xampp\\htdocs\\PPK_Proyek_Hybrid\\BlankCordovaApp1\\release-key-pkcs12.keystore",
+        "storePassword": "funstudy",
+        "alias": "android-key",
+        "password": "funstudy",
+        "keystoreType": ""
+      }
      }
  }

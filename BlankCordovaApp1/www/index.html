@@ -7,12 +7,15 @@
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <link rel="stylesheet" href="css/stylesheet.css" />
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+    <script src="scripts/jquery-1.11.1.min.js"></script>
+    <script src="scripts/cordova.js"></script>
+    <script src="scripts/cordova_plugins.js"></script>
+    <script src="scripts/jquery.mobile-1.4.5.min.js"></script>
+    <script src="scripts/navigation.js"></script>
     <title>Fun Study App</title>
 </head>
-<body>
+<body onload="onLoad()">
     <!-- Memulai halaman pertama -->
     <div id="halaman-awal" data-role="page" class="ui-body-w">
         <!-- Header dari halaman pertama -->
@@ -55,7 +58,7 @@
                 <input type="button" value="Masuk" onclick="Login()" />
                 <p>Belum Punya Akun ? <a href="#halaman-daftar">Register</a></p>
             </form>
-            <a href="#halaman-awal" role="button" data-role="button" class="ui-btn ui-input-btn ui-corner-all ui-shadow">Kembali</a>
+            <a role="button" data-role="button" class="exit-btn ui-btn ui-input-btn ui-corner-all ui-shadow">Keluar</a>
         </div>
         <!-- Footer dari halaman kedua -->
         <div data-role="footer">
@@ -98,7 +101,7 @@
                 <input type="password" placeholder="Ulang Kata Sandi" name="ulang_psw" required>
                 <input type="submit" value="Daftar" />
             </form>
-            <a href="#halaman-login" role="button" data-role="button" class="ui-btn ui-input-btn ui-corner-all ui-shadow">Kembali ke halaman masuk</a>
+            <a role="button" data-role="button" class="back-btn ui-btn ui-input-btn ui-corner-all ui-shadow">Kembali ke halaman masuk</a>
         </div>
         <!-- Footer dari halaman ketiga -->
         <div data-role="footer">
@@ -151,7 +154,7 @@
                         <a href="#dialog-hapusakun" role="button" class="ui-btn ui-input-btn ui-corner-all ui-shadow" data-transition="flip" style="background: lightcoral; color: white;">Hapus Akun</a>
                     </div>
                 </div>
-                <a href="#halaman-utama" role="button" data-role="button" class="ui-btn ui-input-btn ui-corner-all ui-shadow">Kembali</a>
+                <a role="button" data-role="button" class="back-btn ui-btn ui-input-btn ui-corner-all ui-shadow">Kembali</a>
             </form>
         </div>
         <!-- Footer dari halaman keempat -->
@@ -237,7 +240,7 @@
                     </form>
                 </div>
             </center>
-            <a href="#halaman-utama" role="button" data-role="button" class="ui-btn ui-input-btn ui-corner-all ui-shadow">Kembali</a>
+            <a role="button" data-role="button" class="back-btn ui-btn ui-input-btn ui-corner-all ui-shadow">Kembali</a>
         </div>
         <!-- Footer dari halaman YukMain -> Halaman Pilih Kategori -->
         <div data-role="footer">
@@ -264,7 +267,7 @@
                 <li>MUHAMMAD WAHYU PAMENGAS</li>
                 <li>VIO CESAR MELANO YONANTA</li>
             </ul>
-            <a href="#halaman-utama" role="button" data-role="button" class="ui-btn ui-input-btn ui-corner-all ui-shadow">Kembali</a>
+            <a role="button" data-role="button" class="back-btn ui-btn ui-input-btn ui-corner-all ui-shadow">Kembali</a>
         </div>
         <!-- Footer dari halaman aboutUs -->
         <div data-role="footer">
