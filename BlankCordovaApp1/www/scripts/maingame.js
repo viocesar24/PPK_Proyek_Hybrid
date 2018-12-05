@@ -20,7 +20,7 @@ const startGame = async (kategori) => {
 const animateCountdown = async (enter) => {
     if (enter == true) {
         $('.countdown-text').animate({
-            left: "45%",
+            left: "40%",
             fontSize: "10em"
         }, 400, 'linear', function () {
             animateCountdown(false);
@@ -171,7 +171,7 @@ const loadSoal = async (ktg, idx) => {
 
                 $('#panelMainBackground').animate({
                     left: '0%'
-                }, 300, 'swing', function () {
+                }, 450, 'swing', function () {
                     $('#panelMainMask').animate({
                         left: '100%'
                     }, {

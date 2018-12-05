@@ -246,3 +246,8 @@ table {
         position: relative;
         top: 1px;
     }
+
+.kategori {
+    max-width: 40vw;
+    max-height: 40vw;
+}

@@ -1,8 +1,6 @@
 var user;
 
 function Login() {
-    var uname = document.getElementById("username").value;
-    var pass = document.getElementById("password").value;
     var data2 = $('#form_login').serialize();
     $('#alert-login').css('color', 'white');
     $("#alert-login").html("Mohon tunggu...");
@@ -30,8 +28,72 @@ function Login() {
     });
 }
 
-function Register() {
+function validasiRegister() {
+    var psw = document.getElementById("psw").value;
+    var ulangi_psw = document.getElementById("ulangi_psw").value;
+    if (ulangi_psw != psw) {
+        document.getElementById("alert-register").innerHTML = "Input Ulangi Password dan Password tidak sama";
+    } else {
+        Register();
+        $.mobile.navigate("#halaman-daftar");
+    }
+}
 
+function Register() {
+    //mengambil value dari form input
+    var data2 = $('#form_register').serialize();
+    $('#alert-register').css('color', 'white');
+    $("#alert-register").html("Mohon tunggu...");
+    $.ajax({
+        type: "POST",
+        data: data2,
+        //ganti url dengan lokasi dimana file signup berada
+        url: "http://darkflame-webservice.000webhostapp.com/services/funstudy/php/register.php",
+        success: function (data) {
+            console.log(data);
+            if (data == "success") {
+                $('#alert-login').css('color', 'lightgreen');
+                $("#alert-login").html("Selamat! Akun anda sudah aktif");
+                $.mobile.navigate("#halaman-login");
+            }
+            else if (data = "exist") {
+                $('#alert-register').css('color', 'lightcoral');
+                $("#alert-register").html("Username sudah terdaftar");
+            }
+            else if (data = "failed") {
+                $('#alert-register').css('color', 'lightcoral');
+                $("#alert-register").html("Gagal mendaftar");
+            }
+        },
+        timeout: 60000,
+        error: function () {
+            $('#alert-register').css('color', 'lightcoral');
+            $("#alert-register").html("Request Timeout");
+        }
+    });
+}
+
+function HapusAkun() {
+    $.ajax({
+        url: "http://darkflame-webservice.000webhostapp.com/services/funstudy/php/hapus_akun.php",
+        error: function (xhr, status, error) {
+            $('#profil-alert').css('color', 'red');
+            $("#profil-alert").html("Gagal menghapus akun. Silahkan coba lagi.");
+        },
+        success: function (data, status, xhr) {
+            $('#alert-login').css('color', 'white');
+            $("#alert-login").html("");
+            $.mobile.navigate("#halaman-login");
+            if (data == 'success') {
+                $('#alert-login').css('color', 'lightcoral');
+                $("#alert-login").html(`Akun '${user.username}' telah dihapus`);
+            } else {
+                $('#alert-login').css('color', 'lightcoral');
+                $("#alert-login").html(`Akun dengan username '${user.username}' tidak ditemukan`);
+            }
+        },
+        timeout: 60000
+    });
 }
 
 $('#usertext').on('mouseup', function () {
